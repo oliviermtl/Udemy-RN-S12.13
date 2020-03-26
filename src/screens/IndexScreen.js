@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 import {Context} from '../context/BlogContext';
 
-const IndexScreen = () => {
+const IndexScreen = ({navigation}) => {
   const {state, addBlogPost, deleteBlogPost} = useContext(Context);
-
   return (
     <>
       <Button title="Add Post" onPress={addBlogPost} />
@@ -20,17 +19,20 @@ const IndexScreen = () => {
         keyExtractor={blogPost => JSON.stringify(blogPost.id)}
         renderItem={({item}) => {
           return (
-            <View style={styles.row}>
-              <Text style={styles.title}>
-                {item.title} - {item.id}
-              </Text>
-              <TouchableOpacity
-                onPress={() => {
-                  deleteBlogPost(item.id);
-                }}>
-                <Text style={styles.delete}>X</Text>
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Post', {id: item.id})}>
+              <View style={styles.row}>
+                <Text style={styles.title}>
+                  {item.title} - {item.id}
+                </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    deleteBlogPost(item.id);
+                  }}>
+                  <Text style={styles.delete}>X</Text>
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
