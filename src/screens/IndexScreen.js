@@ -1,16 +1,13 @@
-import React, {useContext} from 'react';
-import {
-  Text,
-  FlatList,
-  Button,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import React, {useContext, useEffect} from 'react';
+import {Text, FlatList, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {Context} from '../context/BlogContext';
 
 const IndexScreen = ({navigation}) => {
-  const {state, addBlogPost, deleteBlogPost} = useContext(Context);
+  const {state, deleteBlogPost, getBlogPosts} = useContext(Context);
+
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
   return (
     <>
       <FlatList
