@@ -8,10 +8,12 @@ const ShowScreen = ({route}) => {
   return (
     <View>
       <Text>
-        {blogPost.title} {blogPost.id}
+        {blogPost.title} id:{blogPost.id}
       </Text>
+      <Text>{blogPost.content}</Text>
     </View>
   );
 };
+ShowScreen.navigationOptions = () => {};
 const styles = StyleSheet.create({});
 export default ShowScreen;
