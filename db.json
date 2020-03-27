@@ -1,9 +1,14 @@
 {
   "blogposts": [
     {
-      "id": 120,
-      "title": "this title",
-      "content": "first content"
+      "title": "this title updated",
+      "content": "first content",
+      "id": 120
+    },
+    {
+      "title": "post #2 updated",
+      "content": "updatedcontent #2",
+      "id": 121
     }
   ]
 }
